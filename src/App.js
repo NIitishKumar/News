@@ -12,10 +12,10 @@ function App() {
       `https://newsapi.org/v2/top-headlines?country=us&apiKey=93d7f23b97a14e3e88111033f4dec6f6`
     );
     const data = await res.json();
-    console.log(data.articles[0]);
-    setAuthor(data.articles[0].author);
-    setContent(data.articles[0].content);
-    setImage(data.articles[0].urlToImage);
+    const articles = data.articles[0];
+    setAuthor(articles.author);
+    setContent(articles.content);
+    setImage(articles.urlToImage);
   }, []);
 
   const handleSelectChange = async (e) => {
@@ -24,10 +24,10 @@ function App() {
       `https://newsapi.org/v2/top-headlines?country=${e.value}&apiKey=93d7f23b97a14e3e88111033f4dec6f6`
     );
     const data = await res.json();
-    console.log(data.articles[0]);
-    setAuthor(data.articles[0].author);
-    setContent(data.articles[0].content);
-    setImage(data.articles[0].urlToImage);
+    const articles = data.articles[0];
+    setAuthor(articles.author);
+    setContent(articles.content);
+    setImage(articles.urlToImage);
   };
 
   return (
@@ -37,11 +37,11 @@ function App() {
         // value={}
         onChange={handleSelectChange}
         options={[
-          { value: "in", label: "in" },
-          { value: "us", label: "us" },
+          { value: "in", label: "India" },
+          { value: "us", label: "United State" },
           // { value: 2018, label: 2018 },
         ]}
-        placeholder="Select Year..."
+        placeholder="Select Country..."
       />
       <div className="d-flex justify-content-center">
         <div class="card" style={{ width: "18rem" }}>
